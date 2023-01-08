@@ -16,7 +16,7 @@ public class ProductService {
         products.add(new Product(++ID,"Iphone 8", "Simple",24000,"Moscow","Nik"));
 
     }
-    public  List<Product> list(){return products;}
+    public  List<Product> listProducts(){return products;}
 
     public void saveProduct(Product product){
 
@@ -26,5 +26,13 @@ public class ProductService {
     }
     public void deleteProduct(Long id){
         products.removeIf(products->products.getId().equals(id));
+    }
+
+    public Object getProductById(Long id) {
+        for(Product product : products){
+            if(product.getId().equals(id))
+                return product;
+        }
+        return null;
     }
 }
